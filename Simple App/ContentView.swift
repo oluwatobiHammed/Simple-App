@@ -16,9 +16,17 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            do {
+               let pictures = try await NetworkManager().getPictures()
+                print(pictures)
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

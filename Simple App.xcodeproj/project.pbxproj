@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F1F83EC12E4A8E52000AC967 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1F83EC02E4A8E52000AC967 /* RealmSwift */; };
+		F1F83EC62E4A9478000AC967 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F1F83EC02E4A8E52000AC967 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F1F833F92E4A75AF000AC967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +27,20 @@
 			remoteInfo = "Simple App";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1F83EC52E4A9475000AC967 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F1F83EC62E4A9478000AC967 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F1F833EA2E4A75AD000AC967 /* Simple App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F83EC12E4A8E52000AC967 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +122,7 @@
 				F1F833E62E4A75AD000AC967 /* Sources */,
 				F1F833E72E4A75AD000AC967 /* Frameworks */,
 				F1F833E82E4A75AD000AC967 /* Resources */,
+				F1F83EC52E4A9475000AC967 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +133,7 @@
 			);
 			name = "Simple App";
 			packageProductDependencies = (
+				F1F83EC02E4A8E52000AC967 /* RealmSwift */,
 			);
 			productName = "Simple App";
 			productReference = F1F833EA2E4A75AD000AC967 /* Simple App.app */;
@@ -195,6 +217,9 @@
 			);
 			mainGroup = F1F833E12E4A75AC000AC967;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F1F83EBF2E4A8E52000AC967 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F1F833EB2E4A75AD000AC967 /* Products */;
 			projectDirPath = "";
@@ -593,6 +618,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1F83EBF2E4A8E52000AC967 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1F83EC02E4A8E52000AC967 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1F83EBF2E4A8E52000AC967 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1F833E22E4A75AC000AC967 /* Project object */;
 }
