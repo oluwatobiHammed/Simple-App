@@ -104,3 +104,71 @@ This architecture allows you to test network logic, error handling, and state ma
 Now you can drag any picture card up or down to reorder them in your collection! The drag handle is visible on the right side of each card with proper instructions.
 
 
+I've created comprehensive test suites for  `PicturesViewModel` and `NetworkManager`. Here's what I've provided:
+
+## Test Files Created
+
+### 1. PicturesViewModelTests.swift
+
+- **Initialization Tests:** Verify proper setup  
+- **Fetch Tests:** Success, failure, no duplicates, correct ordering  
+- **Delete Tests:** By index and by ID, including edge cases  
+- **Move Tests:** Reordering and same-position moves  
+- **Refresh Tests:** Pull-to-refresh functionality  
+- **Loading States:** Verify UI states during operations  
+
+### 2. NetworkManagerTests.swift
+
+- **Success Cases:** Valid JSON, empty responses  
+- **Error Cases:** Network errors, no data, invalid JSON, various HTTP status codes  
+- **Response Handler Tests:** All HTTP status code ranges  
+- **Mock Implementation:** Testable version of NetworkManager  
+
+### 3. PicturesIntegrationTests.swift
+
+- **Complete User Workflows:** End-to-end scenarios  
+- **Error Recovery:** Network failure and recovery  
+- **Large Dataset Handling:** Performance with many items  
+- **Concurrent Operations:** Multiple simultaneous requests  
+- **Persistence Scenarios:** Data saving/loading  
+- **Edge Cases:** Empty states, invalid indices  
+- **Performance Tests:** Memory and speed benchmarks  
+
+---
+
+## Key Testing Areas Covered
+
+### ✅ Happy Path Scenarios
+
+- Successful data fetching  
+- Picture management (add, delete, move)  
+- Refresh operations  
+
+### ✅ Error Handling
+
+- Network failures  
+- Invalid JSON responses  
+- HTTP error codes (401, 404, 500, etc.)  
+- No data scenarios  
+
+### ✅ Edge Cases
+
+- Empty datasets  
+- Duplicate prevention  
+- Large datasets (1000+ items)  
+- Concurrent operations  
+- Invalid indices/IDs  
+
+### ✅ Performance Testing
+
+- Memory management  
+- Large dataset operations  
+- Rapid user interactions  
+
+### ✅ Integration Testing
+
+- Complete user workflows  
+- Error recovery scenarios  
+- Persistence behavior  
+
+
