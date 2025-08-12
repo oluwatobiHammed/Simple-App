@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F185F74B2E4B8AB8005C0D2B /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = F185F74A2E4B8AB8005C0D2B /* ViewInspector */; };
+		F185F74D2E4B8AC2005C0D2B /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = F185F74C2E4B8AC2005C0D2B /* ViewInspector */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F1F833F92E4A75AF000AC967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -43,6 +48,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F185F7502E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Simple AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"ContentView+Inspectable.swift",
+			);
+			target = F1F833F72E4A75AF000AC967 /* Simple AppTests */;
+		};
 		F1F83EFF2E4AA74E000AC967 /* Exceptions for "Simple App" folder in "Simple App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -53,6 +65,13 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		F185F7512E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = F1F833F62E4A75AF000AC967 /* Resources */;
+			membershipExceptions = (
+				"ContentView+Inspectable.swift",
+			);
+		};
 		F1F83F002E4AA74E000AC967 /* Exceptions for "Simple App" folder in "Copy Bundle Resources" phase from "Simple App" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = F1F833E82E4A75AD000AC967 /* Resources */;
@@ -74,6 +93,10 @@
 		};
 		F1F833FB2E4A75AF000AC967 /* Simple AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F185F7502E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Simple AppTests" target */,
+				F185F7512E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */,
+			);
 			path = "Simple AppTests";
 			sourceTree = "<group>";
 		};
@@ -96,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F185F74B2E4B8AB8005C0D2B /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F185F74D2E4B8AC2005C0D2B /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +198,7 @@
 			);
 			name = "Simple AppTests";
 			packageProductDependencies = (
+				F185F74A2E4B8AB8005C0D2B /* ViewInspector */,
 			);
 			productName = "Simple AppTests";
 			productReference = F1F833F82E4A75AF000AC967 /* Simple AppTests.xctest */;
@@ -196,6 +222,7 @@
 			);
 			name = "Simple AppUITests";
 			packageProductDependencies = (
+				F185F74C2E4B8AC2005C0D2B /* ViewInspector */,
 			);
 			productName = "Simple AppUITests";
 			productReference = F1F834022E4A75AF000AC967 /* Simple AppUITests.xctest */;
@@ -234,6 +261,7 @@
 			mainGroup = F1F833E12E4A75AC000AC967;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				F185F7492E4B8AB8005C0D2B /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F1F833EB2E4A75AD000AC967 /* Products */;
@@ -637,6 +665,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F185F7492E4B8AB8005C0D2B /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F185F74A2E4B8AB8005C0D2B /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F185F7492E4B8AB8005C0D2B /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+		F185F74C2E4B8AC2005C0D2B /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F185F7492E4B8AB8005C0D2B /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1F833E22E4A75AC000AC967 /* Project object */;
 }

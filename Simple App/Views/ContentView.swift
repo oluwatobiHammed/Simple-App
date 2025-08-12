@@ -10,10 +10,14 @@ import SwiftUI
 // MARK: - Main ContentView
 
 struct ContentView: View {
-    @StateObject private var viewModel = PicturesViewModel()
+    @StateObject private var viewModel: PicturesViewModel
     @State private var showingEmptyState = false
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var dragState = DragDropState() // Shared drag state
+    
+    init(viewModel: PicturesViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     private var backgroundGradient: LinearGradient {
         if colorScheme == .dark {
