@@ -61,7 +61,7 @@ class PicturesViewModel: ObservableObject {
     }
     
     func movePicture(from source: Int, to destination: Int) {
-//        pictures.move(fromOffsets: source, toOffset: destination)
+
         guard source != destination else { return }
         let item = pictures.remove(at: source)
         pictures.insert(item, at: destination)
