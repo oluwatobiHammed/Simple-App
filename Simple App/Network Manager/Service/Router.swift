@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 
 enum NetworkResponse:String, Error {
@@ -202,7 +201,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     fileprivate func configureParameters(bodyParameters: Parameters?,
                                          bodyEncoding: ParameterEncoding,
                                          urlParameters: Parameters?,
-                                         imageTuple: (UIImage?, String)? = nil,
                                          request: inout URLRequest) throws {
         do {
             

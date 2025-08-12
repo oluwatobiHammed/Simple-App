@@ -27,26 +27,28 @@ class PicturesViewModel: ObservableObject {
     func fetchAndSavePicture() async {
         isLoading = true
         errorMessage = nil
-        
+
         do {
             let fetchedPictures = try await networkManager.getPictures()
-            
-            // Add new pictures to the beginning of the array
-            var updatedPictures = pictures
-            for newPicture in fetchedPictures {
-                if !updatedPictures.contains(where: { $0.id == newPicture.id }) {
-                    updatedPictures.insert(newPicture, at: 0)
+
+            if fetchedPictures.isEmpty {
+                pictures.removeAll()
+            } else {
+                var updatedPictures = pictures
+                for newPicture in fetchedPictures {
+                    if !updatedPictures.contains(where: { $0.id == newPicture.id }) {
+                        updatedPictures.insert(newPicture, at: 0)
+                    }
                 }
+                pictures = updatedPictures
             }
-            
-            pictures = updatedPictures
+
             savePictures()
-            
         } catch {
             errorMessage = error.localizedDescription
             print("Error loading pictures: \(error)")
         }
-        
+
         isLoading = false
     }
     
@@ -62,7 +64,12 @@ class PicturesViewModel: ObservableObject {
     
     func movePicture(from source: Int, to destination: Int) {
 
-        guard source != destination else { return }
+        guard source != destination,
+              pictures.indices.contains(source),
+              (0...pictures.count).contains(destination) else {
+            return
+        }
+        
         let item = pictures.remove(at: source)
         pictures.insert(item, at: destination)
         savePictures()

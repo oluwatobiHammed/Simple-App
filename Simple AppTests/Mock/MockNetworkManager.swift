@@ -9,15 +9,22 @@
 import XCTest
 @testable import Simple_App
 
-// Mock NetworkManager for testing
+// MARK: - Mock Network Manager
+
 class MockNetworkManager: NetworkManagerProtocol {
-    var shouldThrowError = false
     var mockPictures: [Pictures] = []
+    var shouldThrowError = false
+    var delay: TimeInterval = 0
     
     func getPictures() async throws -> [Pictures] {
-        if shouldThrowError {
-            throw NSError(domain: "Test", code: 1, userInfo: [NSLocalizedDescriptionKey: "Mock error"])
+        if delay > 0 {
+            try await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
         }
+        
+        if shouldThrowError {
+            throw NSError(domain: "TestError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Network error"])
+        }
+        
         return mockPictures
     }
 }

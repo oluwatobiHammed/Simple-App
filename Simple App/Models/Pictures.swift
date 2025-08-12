@@ -19,7 +19,7 @@ class Pictures: Codable {
         self.width                  = try container.decode(Int.self, forKey: .width)
         self.height                 = try container.decode(Int.self, forKey: .height)
         self.url                    = try container.decodeIfPresent(String.self, forKey: .url)
-        self.downloadUrl                 = try container.decodeIfPresent(String.self, forKey: .downloadUrl)
+        self.downloadUrl            = try container.decodeIfPresent(String.self, forKey: .downloadUrl)
     }
 
 
