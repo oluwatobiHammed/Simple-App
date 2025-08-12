@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct NetworkManager {
+// MARK: - NetworkManager Protocol (for testability)
+protocol NetworkManagerProtocol {
+    func getPictures() async throws -> [Pictures]
+}
+
+// MARK: - NetworkManager
+struct NetworkManager: NetworkManagerProtocol {
     
     let router = Router<Endpoints>()
     var isDebugModeEnabled: Bool {
