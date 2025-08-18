@@ -19,9 +19,9 @@ final class ContentViewTests: XCTestCase {
         var moveCalledFrom: Int?
         var moveCalledTo: Int?
         
-        override var pictures: [Pictures] {
-            didSet { /* notify changes if needed */ }
-        }
+       // override var pictures: [Pictures] {
+           // didSet { /* notify changes if needed */ }
+      //  }
         
         override func fetchAndSavePicture() async {
          

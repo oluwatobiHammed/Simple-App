@@ -82,10 +82,8 @@ struct ContentView: View {
                             
                             // Fetch Button
                             Button(action: {
-                                loadingTask?.cancel()
-                                loadingTask = Task {
-                                    await viewModel.fetchAndSavePicture()
-                                }
+                                
+                                viewModel.addNewImages()
                             }) {
                                 HStack {
                                     if viewModel.isLoading {
@@ -110,12 +108,12 @@ struct ContentView: View {
                             .animation(.easeInOut(duration: 0.1), value: viewModel.isLoading)
                             
                             // Gallery Stats
-                            if !viewModel.pictures.isEmpty {
+                            if !viewModel.addPictures.isEmpty {
                                 HStack(spacing: 16) {
                                     HStack {
                                         Image(systemName: "photo.stack")
                                             .foregroundColor(.blue)
-                                        Text("\(viewModel.pictures.count) picture\(viewModel.pictures.count == 1 ? "" : "s")")
+                                        Text("\(viewModel.addPictures.count) picture\(viewModel.addPictures.count == 1 ? "" : "s")")
                                             .font(.caption)
                                             .foregroundColor(colorScheme == .dark ? .gray : .secondary)
                                     }
@@ -159,16 +157,16 @@ struct ContentView: View {
                         }
                         
                         // Pictures List
-                        if viewModel.pictures.isEmpty {
+                        if viewModel.addPictures.isEmpty {
                             EmptyStateView()
                                 .padding(.top, 40)
                         } else {
                             LazyVStack(spacing: 16) {
-                                ForEach(Array(viewModel.pictures.enumerated()), id: \.element.id) { index, picture in
+                                ForEach(Array(viewModel.addPictures.enumerated()), id: \.element.id) { index, picture in
                                     DraggablePictureCard(
                                         picture: picture,
                                         index: index,
-                                        totalItemCount: viewModel.pictures.count,
+                                        totalItemCount: viewModel.addPictures.count,
                                         onDelete: {
                                             viewModel.deletePicture(withId: picture.id)
                                         },
@@ -181,6 +179,9 @@ struct ContentView: View {
                             }
                         }
                     }
+                }
+                .task {
+                    await viewModel.fetchAndSavePicture()
                 }
                 .refreshable {
                     await viewModel.refreshPictures()
