@@ -33,7 +33,7 @@ public enum ParameterEncoding {
                        urlParameters: Parameters?) throws {
         do {
             
-            var params = urlParameters ?? [:]
+            let params = urlParameters ?? [:]
             
             let clarifiedBodyParameters = bodyParameters?.isEmpty == false ? bodyParameters : nil
             

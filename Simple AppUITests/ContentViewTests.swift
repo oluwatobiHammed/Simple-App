@@ -159,11 +159,11 @@ extension InspectableView where View == ViewType.View<DraggablePictureCard> {
 }
 
 
-extension InspectableView where View == ViewType.View<ContentView> {
-    func callRefresh() async throws {
-        try await self.actualView().viewModel.refreshPictures()
-    }
-}
+//extension InspectableView where View == ViewType.View<ContentView> {
+//    func callRefresh() async throws {
+//        try await self.actualView().viewModel.refreshPictures()
+//    }
+//}
 
 
 

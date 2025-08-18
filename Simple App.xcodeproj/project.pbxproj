@@ -48,12 +48,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F185F7502E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Simple AppTests" target */ = {
+		F1282F6C2E4F8F61002F6F27 /* Exceptions for "Simple AppUITests" folder in "Simple AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ContentViewTests.swift,
+			);
+			target = F1F833F72E4A75AF000AC967 /* Simple AppTests */;
+		};
+		F1282F6D2E4F8F61002F6F27 /* Exceptions for "Simple AppUITests" folder in "Simple AppUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"ContentView+Inspectable.swift",
+				ContentViewTests.swift,
 			);
-			target = F1F833F72E4A75AF000AC967 /* Simple AppTests */;
+			target = F1F834012E4A75AF000AC967 /* Simple AppUITests */;
 		};
 		F1F83EFF2E4AA74E000AC967 /* Exceptions for "Simple App" folder in "Simple App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -65,7 +73,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		F185F7512E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */ = {
+		F1282F6E2E4F8F65002F6F27 /* Exceptions for "Simple AppUITests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = F1F833F62E4A75AF000AC967 /* Resources */;
 			membershipExceptions = (
@@ -93,15 +101,16 @@
 		};
 		F1F833FB2E4A75AF000AC967 /* Simple AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F185F7502E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Simple AppTests" target */,
-				F185F7512E4B8B1D005C0D2B /* Exceptions for "Simple AppTests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */,
-			);
 			path = "Simple AppTests";
 			sourceTree = "<group>";
 		};
 		F1F834052E4A75AF000AC967 /* Simple AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F1282F6C2E4F8F61002F6F27 /* Exceptions for "Simple AppUITests" folder in "Simple AppTests" target */,
+				F1282F6E2E4F8F65002F6F27 /* Exceptions for "Simple AppUITests" folder in "Copy Bundle Resources" phase from "Simple AppTests" target */,
+				F1282F6D2E4F8F61002F6F27 /* Exceptions for "Simple AppUITests" folder in "Simple AppUITests" target */,
+			);
 			path = "Simple AppUITests";
 			sourceTree = "<group>";
 		};

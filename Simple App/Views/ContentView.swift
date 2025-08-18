@@ -14,65 +14,50 @@ struct ContentView: View {
     @State private var showingEmptyState = false
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var dragState = DragDropState() // Shared drag state
+    @State private var loadingTask: Task<Void, Never>?
     
     init(viewModel: PicturesViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     private var backgroundGradient: LinearGradient {
-        if colorScheme == .dark {
-            return LinearGradient(
-                colors: [
-                    Color.black,
-                    Color(.systemGray6),
-                    Color(.systemGray5)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        } else {
-            return LinearGradient(
-                colors: [
-                    Color.blue.opacity(0.1),
-                    Color.purple.opacity(0.1),
-                    Color.pink.opacity(0.05)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        }
+        
+        return LinearGradient(
+            colors: colorScheme == .dark ? [
+                Color.black,
+                Color(.systemGray6),
+                Color(.systemGray5)
+            ] : [
+                Color.blue.opacity(0.1),
+                Color.purple.opacity(0.1),
+                Color.pink.opacity(0.05)
+            ],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
     }
     
     private var titleGradient: LinearGradient {
-        if colorScheme == .dark {
-            return LinearGradient(
-                colors: [.cyan, .blue, .purple],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-        } else {
-            return LinearGradient(
-                colors: [.blue, .purple, .pink],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-        }
+        return LinearGradient(
+            colors: colorScheme == .dark ?
+            [.cyan, .blue, .purple]
+            : [.blue, .purple, .pink],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        
     }
     
     private var buttonGradient: LinearGradient {
-        if colorScheme == .dark {
-            return LinearGradient(
-                colors: [Color.cyan, Color.blue],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-        } else {
-            return LinearGradient(
-                colors: [Color.blue, Color.purple],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-        }
+        return LinearGradient(
+            colors: colorScheme == .dark ?
+            [Color.cyan, Color.blue] :
+                [Color.blue, Color.purple],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        
     }
     
     var body: some View {
@@ -97,7 +82,8 @@ struct ContentView: View {
                             
                             // Fetch Button
                             Button(action: {
-                                Task {
+                                loadingTask?.cancel()
+                                loadingTask = Task {
                                     await viewModel.fetchAndSavePicture()
                                 }
                             }) {
@@ -222,10 +208,3 @@ extension Text {
     }
 }
 
-
-// MARK: - Drag and Drop Helper Extension
-extension LazyVStack {
-    func enableDragAndDrop() -> some View {
-        self.environment(\.editMode, .constant(.active))
-    }
-}
