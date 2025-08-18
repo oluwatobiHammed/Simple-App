@@ -51,24 +51,12 @@ class ImageCacheManager: ObservableObject {
     }
     
     func cacheImage(_ image: UIImage, for url: String) {
-        let key = NSString(string: url.sha256())
+        let key = NSString(string: url)
         
-        // Check if already in memory cache
-        if cache.object(forKey: key) != nil {
-            print("🔄 Image already cached in memory")
-            return // Don't cache again
-        }
-        
-        // Check if exists on disk
-        if imageExistsOnDisk(for: url) {
-            print("💾 Image already cached on disk")
-            // Add to memory cache but don't write to disk again
-            cache.setObject(image, forKey: key)
-            return
-        }
-        
-        // Cache the image (both memory and disk)
+        // Store in memory cache
         cache.setObject(image, forKey: key)
+        
+        // Store in disk cache
         saveToDisk(image: image, url: url)
     }
     
@@ -127,13 +115,5 @@ class ImageCacheManager: ObservableObject {
         
         let sizeInMB = Double(totalSize) / (1024 * 1024)
         return String(format: "%.1f MB", sizeInMB)
-    }
-    
-    // MARK: - Helper Function to Check Disk Cache
-
-    func imageExistsOnDisk(for url: String) -> Bool {
-        let fileName = url.sha256()
-        let fileURL = cacheDirectory.appendingPathComponent(fileName)
-        return FileManager.default.fileExists(atPath: fileURL.path)
     }
 }
